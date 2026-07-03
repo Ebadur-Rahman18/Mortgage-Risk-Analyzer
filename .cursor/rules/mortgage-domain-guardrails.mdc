@@ -1,0 +1,15 @@
+---
+description: Protect loan lifecycle and borrower-data integrity
+alwaysApply: true
+---
+
+# Mortgage Domain Guardrails
+
+Must enforce:
+- Use `useLoanTransitions` / `transition-loan-status` for status changes.
+- Never direct-update `loans.status` or `loan_conditions.status`.
+- Keep `loan_timeline_events` append-only (audit/compliance trail).
+- Respect phase boundaries (3/4/5/7) when adding logic.
+- Borrower data stays user-scoped through RLS-aware hooks.
+- Account for LendingPad sync ownership before changing synced fields.
+- Never expose borrower PII in logs/UI debug output.

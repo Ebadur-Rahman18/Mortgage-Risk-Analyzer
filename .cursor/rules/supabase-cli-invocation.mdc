@@ -1,0 +1,13 @@
+---
+description: Use npx for Supabase CLI commands
+globs: []
+alwaysApply: true
+---
+
+# Supabase CLI Invocation
+
+When running Supabase CLI commands in this workspace:
+
+- Always use `npx supabase ...` instead of `supabase ...`.
+- Applies to deploy, migrations, linking, and local function operations.
+- Example: `npx supabase functions deploy <function-name>`.

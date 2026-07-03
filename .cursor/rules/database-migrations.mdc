@@ -1,0 +1,19 @@
+---
+description: Migration and RLS guardrails for Supabase SQL changes
+globs: ["supabase/migrations/**/*.sql"]
+alwaysApply: false
+---
+
+# Database Migration Conventions
+
+Required:
+- File name format: `YYYYMMDDHHMMSS_description.sql`.
+- Never edit existing migrations; create a new one.
+- Keep one purpose per migration.
+- Enable RLS + add policies for every new table.
+- Keep compatibility unless breakage is explicitly requested.
+
+Cross-system safety:
+- If adding loan statuses, update both DB constraints and `transition-loan-status`.
+- Keep append-only behavior for `loan_timeline_events`, `ai_agent_runs`, and `activity_log`.
+- After schema changes, update affected hooks/types and note rollback impact.

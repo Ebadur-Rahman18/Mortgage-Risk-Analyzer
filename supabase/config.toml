@@ -1,0 +1,7 @@
+project_id = "chlnmgohsjwdhmucozpq"
+
+[functions.bootstrap-first-admin]
+verify_jwt = false
+
+[functions.seed-demo-users]
+verify_jwt = false

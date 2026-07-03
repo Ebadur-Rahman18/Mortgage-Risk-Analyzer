@@ -1,0 +1,20 @@
+---
+description: Preserve multi-provider AI routing behavior
+alwaysApply: true
+---
+
+# AI Provider Routing Protection
+
+Use `supabase/functions/_shared/ai-utils.ts` as the single routing source.
+
+Must preserve:
+- Providers: `openai`, `anthropic`, `google`, `perplexity`.
+- Dispatcher usage: `routedChatCompletion(...)` (no direct provider fetches in functions).
+- API key lookup order: `integration_settings` then env fallback.
+- Defaults:
+  - `openai`: `gpt-4o-mini`
+  - `google`: `gemini-2.0-flash`
+  - `anthropic`: `claude-3-5-haiku-latest`
+  - `perplexity`: `llama-3.1-sonar-small-128k-online`
+- Google `NOT_FOUND` auto-recovery model discovery/retry.
+- Provider-agnostic readiness checks (never OpenAI-only gates).

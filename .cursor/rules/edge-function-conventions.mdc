@@ -1,0 +1,20 @@
+---
+description: Supabase edge-function structure and safety conventions
+globs: ["supabase/functions/**/*.ts"]
+alwaysApply: false
+---
+
+# Edge Function Conventions
+
+Required defaults:
+- Handle CORS first (`OPTIONS` -> `handleCors()`).
+- Validate JWT before business logic.
+- Return with `jsonResp(...)` (avoid raw responses without shared headers).
+- Use `_shared/` utilities instead of duplicating helpers.
+- For AI-calling functions: use `routedChatCompletion(...)` and log success/failure with `logAgentRun(...)`.
+- Use `require-admin.ts` for admin-only endpoints.
+
+Do not:
+- Inline provider API calls in route handlers.
+- Use service role for normal user-scoped queries.
+- Create one-off utility duplicates inside function folders.

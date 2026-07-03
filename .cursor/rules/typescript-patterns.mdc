@@ -1,0 +1,16 @@
+---
+description: TypeScript, React Query, and frontend data patterns
+globs: ["src/**/*.ts", "src/**/*.tsx"]
+alwaysApply: false
+---
+
+# TypeScript Patterns
+
+Use these defaults:
+- Use `@/` imports; avoid deep relative imports.
+- Use shared query keys from `@/lib/cache` (no ad-hoc key arrays).
+- On mutations: invalidate queries + call `logCrud` + show `sonner` toast.
+- Use `useAuth()` for current user context in components/hooks.
+- Keep forms schema-backed via `src/lib/validation.ts`.
+- `src/integrations/supabase/types.ts` is generated; do not hand-edit.
+- Avoid `any`; prefer specific interfaces or `unknown` + guards.

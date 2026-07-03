@@ -1,0 +1,14 @@
+---
+description: Keep AI chat architecture stable
+alwaysApply: true
+---
+
+# AI Framework Guardrails
+
+Protected path:
+- Chat execution stays on `supabase/functions/run-ai-agent/`.
+- `ai-chat-assistant` is not a replacement for main chat flow.
+- Keep `conversation_id` threading with `ai_chat_threads`.
+- Keep memory lifecycle: pre-run `retrieve-agent-memories`, post-run `extract-agent-memories`.
+
+Ask before changing chat orchestration, thread schema, or memory scoring semantics.

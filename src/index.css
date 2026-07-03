@@ -1,0 +1,453 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+ * Mortgage Control Tower Design System
+ * A bold, professional palette for the mortgage industry
+ * Colors: Deep Teal (growth), Amber Gold (success), Navy (trust)
+ * AI-Forward with glowing effects and modern gradients
+ */
+
+@layer base {
+  :root {
+    /* Core brand colors - Bold Mortgage-focused palette */
+    --background: 40 40% 98%;
+    --foreground: 220 55% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 55% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 55% 15%;
+
+    /* Primary: Deeper, richer teal - represents growth, money, approval */
+    --primary: 168 65% 32%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Deep trust navy */
+    --secondary: 220 60% 22%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 40 20% 94%;
+    --muted-foreground: 220 15% 40%;
+
+    /* Accent: More vibrant amber gold - represents success */
+    --accent: 38 95% 50%;
+    --accent-foreground: 220 55% 15%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 168 65% 32%;
+
+    --radius: 0.625rem;
+
+    /* Status colors - Mortgage-specific meanings */
+    --success: 142 76% 38%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 95% 50%;
+    --warning-foreground: 220 55% 15%;
+    --info: 200 80% 50%;
+    --info-foreground: 0 0% 100%;
+
+    /* Mortgage-specific tokens for marketing pages */
+    --mortgage-teal: 168 65% 32%;
+    --mortgage-teal-light: 168 45% 92%;
+    --mortgage-gold: 38 95% 50%;
+    --mortgage-gold-light: 38 80% 92%;
+    --mortgage-navy: 220 60% 22%;
+    --mortgage-navy-light: 220 40% 95%;
+    --mortgage-cream: 40 40% 97%;
+    --mortgage-green: 142 76% 38%;
+    --mortgage-green-light: 142 50% 92%;
+    --mortgage-red: 0 72% 51%;
+    --mortgage-red-light: 0 60% 95%;
+
+    /* Sidebar - Bold dark teal-green theme for HIGH READABILITY */
+    --sidebar-background: 166 50% 12%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 168 65% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 166 40% 18%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 166 30% 25%;
+    --sidebar-ring: 168 65% 45%;
+    --sidebar-muted: 166 20% 75%;
+
+    /* AI Feature colors */
+    --ai-glow: 168 55% 45%;
+    --ai-accent: 172 80% 40%;
+    --ai-gradient-start: 168 65% 35%;
+    --ai-gradient-end: 180 70% 30%;
+  }
+
+  .dark {
+    --background: 220 55% 8%;
+    --foreground: 210 20% 95%;
+
+    --card: 220 50% 12%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 220 50% 12%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 168 60% 42%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 45% 35%;
+    --secondary-foreground: 210 20% 95%;
+
+    --muted: 220 45% 18%;
+    --muted-foreground: 215 20% 60%;
+
+    --accent: 38 85% 50%;
+    --accent-foreground: 220 55% 10%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 45% 20%;
+    --input: 220 45% 20%;
+    --ring: 168 60% 42%;
+
+    --success: 142 60% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 85% 50%;
+    --warning-foreground: 220 55% 10%;
+    --info: 200 70% 50%;
+    --info-foreground: 0 0% 100%;
+
+    /* Dark mode mortgage tokens */
+    --mortgage-teal: 168 60% 42%;
+    --mortgage-teal-light: 168 40% 18%;
+    --mortgage-gold: 38 85% 50%;
+    --mortgage-gold-light: 38 60% 18%;
+    --mortgage-navy: 220 50% 35%;
+    --mortgage-navy-light: 220 45% 15%;
+    --mortgage-cream: 220 50% 12%;
+    --mortgage-green: 142 60% 45%;
+    --mortgage-green-light: 142 40% 18%;
+    --mortgage-red: 0 62% 50%;
+    --mortgage-red-light: 0 50% 18%;
+
+    /* Sidebar - Dark mode with teal theme */
+    --sidebar-background: 166 55% 8%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 168 60% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 166 45% 15%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 166 40% 18%;
+    --sidebar-ring: 168 60% 50%;
+    --sidebar-muted: 166 20% 80%;
+
+    /* AI Feature colors - Dark */
+    --ai-glow: 168 55% 50%;
+    --ai-accent: 172 80% 45%;
+    --ai-gradient-start: 168 60% 40%;
+    --ai-gradient-end: 180 70% 35%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Premium focus states */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  /* Premium shadow utilities */
+  .shadow-soft {
+    box-shadow: 
+      0 1px 2px 0 hsl(220 15% 20% / 0.03),
+      0 2px 4px 0 hsl(220 15% 20% / 0.03),
+      0 4px 8px 0 hsl(220 15% 20% / 0.03);
+  }
+
+  .shadow-elevated {
+    box-shadow: 
+      0 2px 4px 0 hsl(220 15% 20% / 0.04),
+      0 4px 8px 0 hsl(220 15% 20% / 0.04),
+      0 8px 16px 0 hsl(220 15% 20% / 0.04),
+      0 16px 32px 0 hsl(220 15% 20% / 0.02);
+  }
+
+  .shadow-premium {
+    box-shadow: 
+      0 0 0 1px hsl(220 15% 20% / 0.04),
+      0 2px 4px 0 hsl(220 15% 20% / 0.02),
+      0 8px 16px -4px hsl(220 15% 20% / 0.08);
+  }
+
+  /* AI Glow Effects */
+  .ai-glow {
+    box-shadow: 0 0 20px hsl(var(--ai-glow) / 0.3);
+  }
+
+  .ai-glow-subtle {
+    box-shadow: 0 0 12px hsl(var(--ai-glow) / 0.2);
+  }
+
+  .ai-glow-intense {
+    box-shadow: 
+      0 0 20px hsl(var(--ai-glow) / 0.4),
+      0 0 40px hsl(var(--ai-glow) / 0.2);
+  }
+
+  /* AI Badge styling */
+  .ai-badge {
+    background: linear-gradient(135deg, hsl(168 65% 40%), hsl(180 70% 35%));
+    color: white;
+    font-weight: 600;
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* AI Gradient backgrounds */
+  .ai-gradient {
+    background: linear-gradient(135deg, hsl(var(--ai-gradient-start)), hsl(var(--ai-gradient-end)));
+  }
+
+  .ai-gradient-text {
+    background: linear-gradient(135deg, hsl(168 65% 45%), hsl(180 70% 40%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Premium transitions */
+  .transition-premium {
+    @apply transition-all duration-200 ease-out;
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-premium;
+  }
+
+  .card-hover:hover {
+    @apply shadow-elevated;
+    transform: translateY(-1px);
+  }
+
+  /* AI Card styling */
+  .ai-card {
+    @apply relative overflow-hidden rounded-xl border;
+    background: linear-gradient(135deg, hsl(166 50% 12%), hsl(168 45% 15%));
+    border-color: hsl(168 40% 25%);
+  }
+
+  .ai-card::before {
+    content: "";
+    @apply absolute inset-0;
+    background: radial-gradient(ellipse at top right, hsl(168 55% 45% / 0.15), transparent 50%);
+  }
+
+  /* Stat card styling */
+  .stat-card {
+    @apply relative overflow-hidden rounded-xl border bg-card p-6;
+  }
+
+  .stat-card::before {
+    content: "";
+    @apply absolute inset-0 bg-gradient-to-br from-primary/[0.02] to-transparent;
+  }
+
+  /* Enhanced stat card for AI/Premium look */
+  .stat-card-enhanced {
+    @apply relative overflow-hidden rounded-xl border bg-card p-6 transition-all duration-300;
+  }
+
+  .stat-card-enhanced:hover {
+    @apply shadow-elevated;
+    transform: translateY(-2px);
+  }
+
+  .stat-card-enhanced::before {
+    content: "";
+    @apply absolute inset-0;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.03), transparent);
+  }
+
+  /* Premium button states */
+  .btn-premium {
+    @apply relative overflow-hidden transition-premium;
+  }
+
+  .btn-premium::after {
+    content: "";
+    @apply absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 transition-opacity;
+  }
+
+  .btn-premium:hover::after {
+    @apply opacity-100;
+  }
+
+  /* AI Button styling */
+  .btn-ai {
+    @apply relative overflow-hidden font-semibold transition-all duration-200;
+    background: linear-gradient(135deg, hsl(168 65% 38%), hsl(180 70% 32%));
+    color: white;
+  }
+
+  .btn-ai:hover {
+    background: linear-gradient(135deg, hsl(168 65% 42%), hsl(180 70% 36%));
+    box-shadow: 0 0 20px hsl(168 55% 45% / 0.3);
+  }
+
+  /* Input refinements */
+  .input-premium {
+    @apply transition-premium;
+  }
+
+  .input-premium:focus {
+    @apply border-primary/50 shadow-soft;
+  }
+
+  /* Table row hover */
+  .table-row-hover {
+    @apply transition-colors;
+  }
+
+  .table-row-hover:hover {
+    @apply bg-muted/50;
+  }
+
+  /* Navigation active indicator */
+  .nav-active {
+    @apply relative;
+  }
+
+  .nav-active::before {
+    content: "";
+    @apply absolute left-0 top-1/2 h-6 w-0.5 -translate-y-1/2 rounded-full bg-primary;
+  }
+
+  /* Sidebar gradient background */
+  .sidebar-gradient {
+    background: linear-gradient(180deg, hsl(166 50% 12%) 0%, hsl(168 45% 10%) 100%);
+  }
+
+  /* Sidebar active item glow */
+  .sidebar-active-glow {
+    box-shadow: 0 0 15px hsl(168 55% 45% / 0.25);
+  }
+
+  /* Sidebar section label - high contrast for WCAG AAA compliance */
+  .sidebar-section-label {
+    font-size: 0.6875rem; /* 11px */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: hsl(166 20% 75%);
+  }
+
+  /* Sidebar divider line for visual hierarchy */
+  .sidebar-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg, 
+      transparent, 
+      hsl(166 30% 30%), 
+      transparent
+    );
+    margin: 1rem 0;
+  }
+}
+
+@layer utilities {
+  /* Text balance for headings */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Subtle gradient backgrounds */
+  .bg-gradient-subtle {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--background)) 0%,
+      hsl(var(--muted)) 100%
+    );
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply bg-background/80 backdrop-blur-md;
+  }
+
+  /* Spacing utilities for consistent layouts */
+  .section-spacing {
+    @apply py-8 md:py-12;
+  }
+
+  .page-padding {
+    @apply px-4 md:px-6 lg:px-8;
+  }
+
+  /* AI Pulse animation utility */
+  .ai-pulse {
+    animation: ai-pulse 2s ease-in-out infinite;
+  }
+
+  /* AI Sparkle effect */
+  .ai-sparkle {
+    position: relative;
+  }
+
+  .ai-sparkle::after {
+    content: "✨";
+    position: absolute;
+    top: -2px;
+    right: -8px;
+    font-size: 0.75rem;
+    animation: sparkle 2s ease-in-out infinite;
+  }
+}
+
+/* Custom Keyframe Animations */
+@keyframes ai-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1) rotate(10deg);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px hsl(168 55% 45% / 0.25);
+  }
+  50% {
+    box-shadow: 0 0 25px hsl(168 55% 45% / 0.4);
+  }
+}

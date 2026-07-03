@@ -1,0 +1,17 @@
+ALTER TABLE public.loans
+  ADD COLUMN IF NOT EXISTS appraised_value numeric,
+  ADD COLUMN IF NOT EXISTS ltv numeric,
+  ADD COLUMN IF NOT EXISTS credit_score integer,
+  ADD COLUMN IF NOT EXISTS dti numeric,
+  ADD COLUMN IF NOT EXISTS purpose text,
+  ADD COLUMN IF NOT EXISTS occupancy_type text,
+  ADD COLUMN IF NOT EXISTS property_postal_code text,
+  ADD COLUMN IF NOT EXISTS lock_date date,
+  ADD COLUMN IF NOT EXISTS lock_expiration_date date,
+  ADD COLUMN IF NOT EXISTS product_id uuid,
+  ADD COLUMN IF NOT EXISTS program_id uuid,
+  ADD COLUMN IF NOT EXISTS branch_id uuid,
+  ADD COLUMN IF NOT EXISTS underwriter_id uuid,
+  ADD COLUMN IF NOT EXISTS data_source text DEFAULT 'manual',
+  ADD COLUMN IF NOT EXISTS external_id text,
+  ADD COLUMN IF NOT EXISTS api_payload jsonb;

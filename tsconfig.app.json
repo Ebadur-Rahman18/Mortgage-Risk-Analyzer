@@ -1,0 +1,54 @@
+{
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "module": "ESNext",
+    "moduleDetection": "force",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": false,
+    "noImplicitAny": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "skipLibCheck": true,
+    "strict": false,
+    "target": "ES2020",
+    "useDefineForClassFields": true
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "src/components/admin/EncompassIntegrationCard.tsx",
+    "src/components/loans/FileRiskAgentPanel.tsx",
+    "src/components/loans/LoansPipelineBoard.tsx",
+    "src/components/loans/phase3",
+    "src/components/loans/phase5",
+    "src/components/loans/phase7",
+    "src/hooks/useBorrowerCommunications.ts",
+    "src/hooks/useBorrowerPortalStaff.ts",
+    "src/hooks/useIntegrationSettings.ts",
+    "src/hooks/useManagerDashboard.ts",
+    "src/hooks/useSyncDataFeed.ts",
+    "src/lib/loan-export-utils.ts",
+    "src/pages/AgentDetail.tsx",
+    "src/pages/CommunicationCenter.tsx",
+    "src/pages/MeetingForm.tsx",
+    "src/pages/admin/AIUsageAnalytics.tsx",
+    "src/pages/admin/DeploymentChecklist.tsx",
+    "src/pages/admin/HmdaReporting.tsx",
+    "src/pages/admin/MeetingAnalytics.tsx",
+    "src/pages/pricing/PricingCalculatorPage.tsx"
+  ]
+}

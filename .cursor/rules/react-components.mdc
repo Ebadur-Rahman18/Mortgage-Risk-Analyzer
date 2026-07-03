@@ -1,0 +1,17 @@
+---
+description: React page/component implementation defaults
+globs: ["src/components/**/*.tsx", "src/pages/**/*.tsx"]
+alwaysApply: false
+---
+
+# React Component Conventions
+
+Use these defaults:
+- Prefer named exports.
+- Use the right route guard in `src/App.tsx`: `ProtectedRoute`, `AdminRoute`, `ModuleRoute`.
+- Use `useEffectivePermissions` for role-gated UI checks.
+- Handle loading/error explicitly (`LoadingSpinner`, `EmptyState`).
+- Use shadcn/ui components from `@/components/ui` first.
+- Keep Supabase calls in hooks, not components/pages.
+- Keep form schemas in `src/lib/validation.ts`.
+- For loan features, reuse existing `src/components/loans/*` patterns before adding new component types.
