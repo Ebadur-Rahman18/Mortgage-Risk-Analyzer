@@ -28,7 +28,7 @@ export function ModuleRoute({
 }: ModuleRouteProps) {
   const { user, profile, loading, profileLoading } = useAuth();
   const { isFeatureEnabled, isLoading: flagsLoading } = useFeatureFlags();
-  const { hasPermission, isLoading: permissionsLoading, isAdmin } = useEffectivePermissions();
+  const { hasPermission, isLoading: permissionsLoading } = useEffectivePermissions();
   const { data: moduleList, isLoading: modulesLoading } = useModuleSettings();
   const toastShownRef = useRef(false);
 
@@ -54,9 +54,8 @@ export function ModuleRoute({
     return <Navigate to="/login" replace />;
   }
 
-  // Check module enabled (admin toggle) if required.
-  // Admins bypass the module toggle so they can always access for configuration.
-  if (requiresModule && !isAdmin && !isModuleEnabled(moduleList, requiresModule)) {
+  // Check module enabled (admin toggle) if required — applies to all roles.
+  if (requiresModule && !isModuleEnabled(moduleList, requiresModule)) {
     if (!toastShownRef.current) {
       toastShownRef.current = true;
       toast.error("This module is currently disabled", {

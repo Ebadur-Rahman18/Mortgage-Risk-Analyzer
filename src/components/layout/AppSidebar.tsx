@@ -148,6 +148,25 @@ const aiToolsItems: SidebarItem[] = [
   },
 ];
 
+const ALL_SIDEBAR_HREFS = [...navigationItems, ...aiToolsItems].flatMap((item) => [
+  item.href,
+  ...(item.children?.map((child) => child.href) ?? []),
+]);
+
+/** Prefix match for nav active state, but defer to a longer peer href (e.g. /loans vs /loans/risk-dashboard). */
+function isNavItemActive(pathname: string, itemHref: string, peerHrefs: string[]): boolean {
+  if (pathname === itemHref) return true;
+  if (!pathname.startsWith(`${itemHref}/`)) return false;
+
+  const ownedByPeer = peerHrefs.some(
+    (peer) =>
+      peer !== itemHref &&
+      peer.startsWith(`${itemHref}/`) &&
+      (pathname === peer || pathname.startsWith(`${peer}/`)),
+  );
+  return !ownedByPeer;
+}
+
 export function AppSidebar() {
   const location = useLocation();
   const { profile } = useAuth();
@@ -217,7 +236,7 @@ export function AppSidebar() {
       if (isUserRoleLiteNav && !userRoleNavAllow.has(item.href)) return false;
       if (item.href === "/calendar" && !canAccessOperationsCalendar(profile)) return false;
       if (item.href === "/pipeline" && !showManagerDashboardInNav) return false;
-      if (item.module && !isAdmin && !isModuleEnabled(moduleList, item.module)) return false;
+      if (item.module && !isModuleEnabled(moduleList, item.module)) return false;
       if (item.permission && !hasPermission(item.permission)) return false;
       if (item.featureFlag && !isFeatureEnabled(item.featureFlag)) return false;
       if (item.agentSlug && !agentEnabledMap[item.agentSlug]) return false;
@@ -245,8 +264,7 @@ export function AppSidebar() {
 
   const renderNavItem = (item: SidebarItem) => {
     const Icon = item.icon;
-    const isActive = location.pathname === item.href ||
-                     location.pathname.startsWith(item.href + "/");
+    const isActive = isNavItemActive(location.pathname, item.href, ALL_SIDEBAR_HREFS);
     const hasChildren = Boolean(item.children?.length);
     const sectionExpanded = isSectionExpanded(item);
 
@@ -326,8 +344,7 @@ export function AppSidebar() {
         {!collapsed && item.children?.length && sectionExpanded ? (
           <div className="mt-1 space-y-1 pl-11">
             {item.children.map((child) => {
-              const isChildActive =
-                location.pathname === child.href || location.pathname.startsWith(`${child.href}/`);
+              const isChildActive = isNavItemActive(location.pathname, child.href, ALL_SIDEBAR_HREFS);
               return (
                 <Link
                   key={child.href}

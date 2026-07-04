@@ -1,0 +1,31 @@
+%PDF-1.4
+1 0 obj<< /Type /Catalog /Pages 2 0 R >>endobj
+2 0 obj<< /Type /Pages /Kids [3 0 R] /Count 1 >>endobj
+3 0 obj<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>endobj
+4 0 obj<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>endobj
+5 0 obj<< /Length 417 >>stream
+BT /F1 11 Tf
+72 740 Td (PAY STUB - SAMPLE \(TEST DOCUMENT ONLY\)) Tj
+0 -16 Td (Employer: Midwest Home Lending LLC) Tj
+0 -16 Td (Employee: Jane Smith) Tj
+0 -16 Td (Pay period: 01/01/2026 - 01/15/2026) Tj
+0 -16 Td (Pay date: 01/17/2026) Tj
+0 -16 Td (Gross pay: $3,658.33) Tj
+0 -16 Td (Net pay: $2,741.18) Tj
+0 -16 Td (YTD gross: $3,658.33) Tj
+0 -16 Td (Not a real payroll record. For Risk Copilot upload testing.) Tj
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000056 00000 n 
+0000000111 00000 n 
+0000000235 00000 n 
+0000000303 00000 n 
+trailer<< /Size 6 /Root 1 0 R >>
+startxref
+769
+%%EOF
